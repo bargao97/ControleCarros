@@ -1,0 +1,387 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BancoCarrosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CARROS">
+          <Key>
+            <PropertyRef Name="IDCARRO" />
+          </Key>
+          <Property Name="IDCARRO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PLACA" Type="nvarchar" MaxLength="10" />
+          <Property Name="ANO" Type="int" />
+          <Property Name="FABRICANTE" Type="int" />
+          <Property Name="MARCA" Type="int" />
+        </EntityType>
+        <EntityType Name="FABRICANTE">
+          <Key>
+            <PropertyRef Name="IDFABRICANTE" />
+          </Key>
+          <Property Name="IDFABRICANTE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMEFABRICANTE" Type="nchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="MARCA">
+          <Key>
+            <PropertyRef Name="IDMARCA" />
+          </Key>
+          <Property Name="IDMARCA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMEMARCA" Type="nchar" MaxLength="150" />
+          <Property Name="FABRICANTE" Type="int" />
+        </EntityType>
+        <EntityType Name="SERVICOS">
+          <Key>
+            <PropertyRef Name="IDSERVICO" />
+          </Key>
+          <Property Name="IDSERVICO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DATA" Type="datetime" />
+          <Property Name="ANO" Type="int" />
+          <Property Name="PLACA" Type="nchar" MaxLength="20" />
+          <Property Name="DESCRICAO" Type="nchar" MaxLength="150" />
+          <Property Name="PRECO" Type="float" />
+          <Property Name="GARANTIA" Type="nchar" MaxLength="40" />
+          <Property Name="OBSERVACOES" Type="nvarchar(max)" />
+          <Property Name="FABRICANTE" Type="int" />
+          <Property Name="MARCA" Type="int" />
+          <Property Name="CARRO" Type="int" />
+          <Property Name="FINAL_GARANTIA" Type="datetime" />
+        </EntityType>
+        <Association Name="FK__CARROS__FABRICAN__36B12243">
+          <End Role="FABRICANTE" Type="Self.FABRICANTE" Multiplicity="0..1" />
+          <End Role="CARROS" Type="Self.CARROS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FABRICANTE">
+              <PropertyRef Name="IDFABRICANTE" />
+            </Principal>
+            <Dependent Role="CARROS">
+              <PropertyRef Name="FABRICANTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CARROS__MARCA__37A5467C">
+          <End Role="MARCA" Type="Self.MARCA" Multiplicity="0..1" />
+          <End Role="CARROS" Type="Self.CARROS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MARCA">
+              <PropertyRef Name="IDMARCA" />
+            </Principal>
+            <Dependent Role="CARROS">
+              <PropertyRef Name="MARCA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MARCA__FABRICANT__25869641">
+          <End Role="FABRICANTE" Type="Self.FABRICANTE" Multiplicity="0..1" />
+          <End Role="MARCA" Type="Self.MARCA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FABRICANTE">
+              <PropertyRef Name="IDFABRICANTE" />
+            </Principal>
+            <Dependent Role="MARCA">
+              <PropertyRef Name="FABRICANTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SERVICOS__CARRO__38996AB5">
+          <End Role="CARROS" Type="Self.CARROS" Multiplicity="0..1" />
+          <End Role="SERVICOS" Type="Self.SERVICOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CARROS">
+              <PropertyRef Name="IDCARRO" />
+            </Principal>
+            <Dependent Role="SERVICOS">
+              <PropertyRef Name="CARRO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SERVICOS__FABRIC__286302EC">
+          <End Role="FABRICANTE" Type="Self.FABRICANTE" Multiplicity="0..1" />
+          <End Role="SERVICOS" Type="Self.SERVICOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FABRICANTE">
+              <PropertyRef Name="IDFABRICANTE" />
+            </Principal>
+            <Dependent Role="SERVICOS">
+              <PropertyRef Name="FABRICANTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SERVICOS__MARCA__29572725">
+          <End Role="MARCA" Type="Self.MARCA" Multiplicity="0..1" />
+          <End Role="SERVICOS" Type="Self.SERVICOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MARCA">
+              <PropertyRef Name="IDMARCA" />
+            </Principal>
+            <Dependent Role="SERVICOS">
+              <PropertyRef Name="MARCA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BancoCarrosModelStoreContainer">
+          <EntitySet Name="CARROS" EntityType="Self.CARROS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FABRICANTE" EntityType="Self.FABRICANTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MARCA" EntityType="Self.MARCA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SERVICOS" EntityType="Self.SERVICOS" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__CARROS__FABRICAN__36B12243" Association="Self.FK__CARROS__FABRICAN__36B12243">
+            <End Role="FABRICANTE" EntitySet="FABRICANTE" />
+            <End Role="CARROS" EntitySet="CARROS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CARROS__MARCA__37A5467C" Association="Self.FK__CARROS__MARCA__37A5467C">
+            <End Role="MARCA" EntitySet="MARCA" />
+            <End Role="CARROS" EntitySet="CARROS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MARCA__FABRICANT__25869641" Association="Self.FK__MARCA__FABRICANT__25869641">
+            <End Role="FABRICANTE" EntitySet="FABRICANTE" />
+            <End Role="MARCA" EntitySet="MARCA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SERVICOS__CARRO__38996AB5" Association="Self.FK__SERVICOS__CARRO__38996AB5">
+            <End Role="CARROS" EntitySet="CARROS" />
+            <End Role="SERVICOS" EntitySet="SERVICOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SERVICOS__FABRIC__286302EC" Association="Self.FK__SERVICOS__FABRIC__286302EC">
+            <End Role="FABRICANTE" EntitySet="FABRICANTE" />
+            <End Role="SERVICOS" EntitySet="SERVICOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SERVICOS__MARCA__29572725" Association="Self.FK__SERVICOS__MARCA__29572725">
+            <End Role="MARCA" EntitySet="MARCA" />
+            <End Role="SERVICOS" EntitySet="SERVICOS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BancoCarrosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="FABRICANTE">
+          <Key>
+            <PropertyRef Name="IDFABRICANTE" />
+          </Key>
+          <Property Name="IDFABRICANTE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMEFABRICANTE" Type="String" MaxLength="150" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="MARCA" Relationship="Self.FK__MARCA__FABRICANT__25869641" FromRole="FABRICANTE" ToRole="MARCA" />
+          <NavigationProperty Name="SERVICOS" Relationship="Self.FK__SERVICOS__FABRIC__286302EC" FromRole="FABRICANTE" ToRole="SERVICOS" />
+          <NavigationProperty Name="CARROS" Relationship="BancoCarrosModel.FK__CARROS__FABRICAN__36B12243" FromRole="FABRICANTE" ToRole="CARROS" />
+        </EntityType>
+        <EntityType Name="MARCA">
+          <Key>
+            <PropertyRef Name="IDMARCA" />
+          </Key>
+          <Property Name="IDMARCA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMEMARCA" Type="String" MaxLength="150" FixedLength="true" Unicode="true" />
+          <Property Name="FABRICANTE" Type="Int32" />
+          <NavigationProperty Name="FABRICANTE1" Relationship="Self.FK__MARCA__FABRICANT__25869641" FromRole="MARCA" ToRole="FABRICANTE" />
+          <NavigationProperty Name="SERVICOS" Relationship="Self.FK__SERVICOS__MARCA__29572725" FromRole="MARCA" ToRole="SERVICOS" />
+          <NavigationProperty Name="CARROS" Relationship="BancoCarrosModel.FK__CARROS__MARCA__37A5467C" FromRole="MARCA" ToRole="CARROS" />
+        </EntityType>
+        <EntityType Name="SERVICOS">
+          <Key>
+            <PropertyRef Name="IDSERVICO" />
+          </Key>
+          <Property Name="IDSERVICO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DATA" Type="DateTime" Precision="3" />
+          <Property Name="ANO" Type="Int32" />
+          <Property Name="PLACA" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="DESCRICAO" Type="String" MaxLength="150" FixedLength="true" Unicode="true" />
+          <Property Name="PRECO" Type="Double" />
+          <Property Name="GARANTIA" Type="String" MaxLength="40" FixedLength="true" Unicode="true" />
+          <Property Name="OBSERVACOES" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FABRICANTE" Type="Int32" />
+          <Property Name="MARCA" Type="Int32" />
+          <NavigationProperty Name="FABRICANTE1" Relationship="Self.FK__SERVICOS__FABRIC__286302EC" FromRole="SERVICOS" ToRole="FABRICANTE" />
+          <NavigationProperty Name="MARCA1" Relationship="Self.FK__SERVICOS__MARCA__29572725" FromRole="SERVICOS" ToRole="MARCA" />
+          <Property Name="CARRO" Type="Int32" />
+          <NavigationProperty Name="CARROS" Relationship="BancoCarrosModel.FK__SERVICOS__CARRO__38996AB5" FromRole="SERVICOS" ToRole="CARROS" />
+          <Property Name="FINAL_GARANTIA" Type="DateTime" Precision="3" />
+        </EntityType>
+        <Association Name="FK__MARCA__FABRICANT__25869641">
+          <End Role="FABRICANTE" Type="Self.FABRICANTE" Multiplicity="0..1" />
+          <End Role="MARCA" Type="Self.MARCA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FABRICANTE">
+              <PropertyRef Name="IDFABRICANTE" />
+            </Principal>
+            <Dependent Role="MARCA">
+              <PropertyRef Name="FABRICANTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SERVICOS__FABRIC__286302EC">
+          <End Role="FABRICANTE" Type="Self.FABRICANTE" Multiplicity="0..1" />
+          <End Role="SERVICOS" Type="Self.SERVICOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FABRICANTE">
+              <PropertyRef Name="IDFABRICANTE" />
+            </Principal>
+            <Dependent Role="SERVICOS">
+              <PropertyRef Name="FABRICANTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SERVICOS__MARCA__29572725">
+          <End Role="MARCA" Type="Self.MARCA" Multiplicity="0..1" />
+          <End Role="SERVICOS" Type="Self.SERVICOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MARCA">
+              <PropertyRef Name="IDMARCA" />
+            </Principal>
+            <Dependent Role="SERVICOS">
+              <PropertyRef Name="MARCA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BancoCarrosEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="FABRICANTE" EntityType="Self.FABRICANTE" />
+          <EntitySet Name="MARCA" EntityType="Self.MARCA" />
+          <EntitySet Name="SERVICOS" EntityType="Self.SERVICOS" />
+          <AssociationSet Name="FK__MARCA__FABRICANT__25869641" Association="Self.FK__MARCA__FABRICANT__25869641">
+            <End Role="FABRICANTE" EntitySet="FABRICANTE" />
+            <End Role="MARCA" EntitySet="MARCA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SERVICOS__FABRIC__286302EC" Association="Self.FK__SERVICOS__FABRIC__286302EC">
+            <End Role="FABRICANTE" EntitySet="FABRICANTE" />
+            <End Role="SERVICOS" EntitySet="SERVICOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SERVICOS__MARCA__29572725" Association="Self.FK__SERVICOS__MARCA__29572725">
+            <End Role="MARCA" EntitySet="MARCA" />
+            <End Role="SERVICOS" EntitySet="SERVICOS" />
+          </AssociationSet>
+          <EntitySet Name="CARROS" EntityType="BancoCarrosModel.CARROS" />
+          <AssociationSet Name="FK__CARROS__FABRICAN__36B12243" Association="BancoCarrosModel.FK__CARROS__FABRICAN__36B12243">
+            <End Role="FABRICANTE" EntitySet="FABRICANTE" />
+            <End Role="CARROS" EntitySet="CARROS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CARROS__MARCA__37A5467C" Association="BancoCarrosModel.FK__CARROS__MARCA__37A5467C">
+            <End Role="MARCA" EntitySet="MARCA" />
+            <End Role="CARROS" EntitySet="CARROS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SERVICOS__CARRO__38996AB5" Association="BancoCarrosModel.FK__SERVICOS__CARRO__38996AB5">
+            <End Role="CARROS" EntitySet="CARROS" />
+            <End Role="SERVICOS" EntitySet="SERVICOS" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CARROS">
+          <Key>
+            <PropertyRef Name="IDCARRO" />
+          </Key>
+          <Property Name="IDCARRO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PLACA" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ANO" Type="Int32" />
+          <Property Name="FABRICANTE" Type="Int32" />
+          <Property Name="MARCA" Type="Int32" />
+          <NavigationProperty Name="FABRICANTE1" Relationship="BancoCarrosModel.FK__CARROS__FABRICAN__36B12243" FromRole="CARROS" ToRole="FABRICANTE" />
+          <NavigationProperty Name="MARCA1" Relationship="BancoCarrosModel.FK__CARROS__MARCA__37A5467C" FromRole="CARROS" ToRole="MARCA" />
+          <NavigationProperty Name="SERVICOS" Relationship="BancoCarrosModel.FK__SERVICOS__CARRO__38996AB5" FromRole="CARROS" ToRole="SERVICOS" />
+        </EntityType>
+        <Association Name="FK__CARROS__FABRICAN__36B12243">
+          <End Type="BancoCarrosModel.FABRICANTE" Role="FABRICANTE" Multiplicity="0..1" />
+          <End Type="BancoCarrosModel.CARROS" Role="CARROS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FABRICANTE">
+              <PropertyRef Name="IDFABRICANTE" />
+            </Principal>
+            <Dependent Role="CARROS">
+              <PropertyRef Name="FABRICANTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CARROS__MARCA__37A5467C">
+          <End Type="BancoCarrosModel.MARCA" Role="MARCA" Multiplicity="0..1" />
+          <End Type="BancoCarrosModel.CARROS" Role="CARROS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MARCA">
+              <PropertyRef Name="IDMARCA" />
+            </Principal>
+            <Dependent Role="CARROS">
+              <PropertyRef Name="MARCA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SERVICOS__CARRO__38996AB5">
+          <End Type="BancoCarrosModel.CARROS" Role="CARROS" Multiplicity="0..1" />
+          <End Type="BancoCarrosModel.SERVICOS" Role="SERVICOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CARROS">
+              <PropertyRef Name="IDCARRO" />
+            </Principal>
+            <Dependent Role="SERVICOS">
+              <PropertyRef Name="CARRO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BancoCarrosModelStoreContainer" CdmEntityContainer="BancoCarrosEntities1">
+          <EntitySetMapping Name="FABRICANTE">
+            <EntityTypeMapping TypeName="BancoCarrosModel.FABRICANTE">
+              <MappingFragment StoreEntitySet="FABRICANTE">
+                <ScalarProperty Name="IDFABRICANTE" ColumnName="IDFABRICANTE" />
+                <ScalarProperty Name="NOMEFABRICANTE" ColumnName="NOMEFABRICANTE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MARCA">
+            <EntityTypeMapping TypeName="BancoCarrosModel.MARCA">
+              <MappingFragment StoreEntitySet="MARCA">
+                <ScalarProperty Name="IDMARCA" ColumnName="IDMARCA" />
+                <ScalarProperty Name="NOMEMARCA" ColumnName="NOMEMARCA" />
+                <ScalarProperty Name="FABRICANTE" ColumnName="FABRICANTE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SERVICOS">
+            <EntityTypeMapping TypeName="BancoCarrosModel.SERVICOS">
+              <MappingFragment StoreEntitySet="SERVICOS">
+                <ScalarProperty Name="FINAL_GARANTIA" ColumnName="FINAL_GARANTIA" />
+                <ScalarProperty Name="CARRO" ColumnName="CARRO" />
+                <ScalarProperty Name="IDSERVICO" ColumnName="IDSERVICO" />
+                <ScalarProperty Name="DATA" ColumnName="DATA" />
+                <ScalarProperty Name="ANO" ColumnName="ANO" />
+                <ScalarProperty Name="PLACA" ColumnName="PLACA" />
+                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+                <ScalarProperty Name="PRECO" ColumnName="PRECO" />
+                <ScalarProperty Name="GARANTIA" ColumnName="GARANTIA" />
+                <ScalarProperty Name="OBSERVACOES" ColumnName="OBSERVACOES" />
+                <ScalarProperty Name="FABRICANTE" ColumnName="FABRICANTE" />
+                <ScalarProperty Name="MARCA" ColumnName="MARCA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CARROS">
+            <EntityTypeMapping TypeName="BancoCarrosModel.CARROS">
+              <MappingFragment StoreEntitySet="CARROS">
+                <ScalarProperty Name="MARCA" ColumnName="MARCA" />
+                <ScalarProperty Name="FABRICANTE" ColumnName="FABRICANTE" />
+                <ScalarProperty Name="ANO" ColumnName="ANO" />
+                <ScalarProperty Name="PLACA" ColumnName="PLACA" />
+                <ScalarProperty Name="IDCARRO" ColumnName="IDCARRO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

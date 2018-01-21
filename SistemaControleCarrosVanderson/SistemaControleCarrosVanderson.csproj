@@ -1,0 +1,345 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D6C7A71D-0AB5-44F1-9E1C-0D153477A7D8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SistemaControleCarrosVanderson</RootNamespace>
+    <AssemblyName>SistemaControleCarrosVanderson</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>76C11511FB49499BDED3747BA5A3193B99EAC801</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>SistemaControleCarrosVanderson_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClosedXML, Version=0.90.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.90.0\lib\net452\ClosedXML.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.7.2\lib\net40\DocumentFormat.OpenXml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServerCompact, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.SqlServerCompact.6.2.0\lib\net45\EntityFramework.SqlServerCompact.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FastMember.Signed, Version=1.0.0.9, Culture=neutral, PublicKeyToken=9e8f22703bef9a29, processorArchitecture=MSIL">
+      <HintPath>..\packages\FastMember.Signed.1.1.0\lib\net40\FastMember.Signed.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BuscarCarro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BuscarCarro.Designer.cs">
+      <DependentUpon>BuscarCarro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BuscarServico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BuscarServico.Designer.cs">
+      <DependentUpon>BuscarServico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CadastrarFabricante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastrarFabricante.Designer.cs">
+      <DependentUpon>CadastrarFabricante.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CadastrarMarca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastrarMarca.Designer.cs">
+      <DependentUpon>CadastrarMarca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cadastrarCarro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cadastrarCarro.Designer.cs">
+      <DependentUpon>cadastrarCarro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CadastrarServico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastrarServico.Designer.cs">
+      <DependentUpon>CadastrarServico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Database\BancoCar.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BancoCar.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\BancoCar.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BancoCar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\BancoCar.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BancoCar.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Database\CARROS.cs">
+      <DependentUpon>BancoCar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\FABRICANTE.cs">
+      <DependentUpon>BancoCar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\MARCA.cs">
+      <DependentUpon>BancoCar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\SERVICOS.cs">
+      <DependentUpon>BancoCar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RelatorioCarros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RelatorioCarros.Designer.cs">
+      <DependentUpon>RelatorioCarros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VerCarro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VerCarro.Designer.cs">
+      <DependentUpon>VerCarro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VerFabricante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VerFabricante.Designer.cs">
+      <DependentUpon>VerFabricante.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VerServico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VerServico.Designer.cs">
+      <DependentUpon>VerServico.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="BuscarCarro.resx">
+      <DependentUpon>BuscarCarro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BuscarServico.resx">
+      <DependentUpon>BuscarServico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CadastrarFabricante.resx">
+      <DependentUpon>CadastrarFabricante.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CadastrarMarca.resx">
+      <DependentUpon>CadastrarMarca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cadastrarCarro.resx">
+      <DependentUpon>cadastrarCarro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CadastrarServico.resx">
+      <DependentUpon>CadastrarServico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="RelatorioCarros.resx">
+      <DependentUpon>RelatorioCarros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VerCarro.resx">
+      <DependentUpon>VerCarro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VerFabricante.resx">
+      <DependentUpon>VerFabricante.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VerServico.resx">
+      <DependentUpon>VerServico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Database\BancoCar.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BancoCar.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Database\BancoCar.edmx.diagram">
+      <DependentUpon>BancoCar.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="SistemaControleCarrosVanderson_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Database\BanCar.sdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Database\BancoCar.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BancoCar.edmx</DependentUpon>
+      <LastGenOutput>BancoCar.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Database\BancoCar.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BancoCar.edmx</DependentUpon>
+      <LastGenOutput>BancoCar.cs</LastGenOutput>
+    </Content>
+    <Content Include="Database\BancoCarros.mdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Database\BancoCarros_log.ldf">
+      <DependentUpon>BancoCarros.mdf</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Imagens\roda.jpg" />
+    <None Include="Imagens\ferrari 2.jpg" />
+    <None Include="Imagens\ferrari.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    if not exist "$(TargetDir)x86" md "$(TargetDir)x86"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\x86\*.*" "$(TargetDir)x86"
+    if not exist "$(TargetDir)amd64" md "$(TargetDir)amd64"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\amd64\*.*" "$(TargetDir)amd64"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

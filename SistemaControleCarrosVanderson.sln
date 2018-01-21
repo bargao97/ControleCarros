@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaControleCarrosVanderson", "SistemaControleCarrosVanderson\SistemaControleCarrosVanderson.csproj", "{D6C7A71D-0AB5-44F1-9E1C-0D153477A7D8}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Instalador", "Instalador\Instalador.vdproj", "{C29A9934-AE47-4776-867F-0240A83F2C53}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D6C7A71D-0AB5-44F1-9E1C-0D153477A7D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6C7A71D-0AB5-44F1-9E1C-0D153477A7D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6C7A71D-0AB5-44F1-9E1C-0D153477A7D8}.Debug|x86.ActiveCfg = Debug|x86
+		{D6C7A71D-0AB5-44F1-9E1C-0D153477A7D8}.Debug|x86.Build.0 = Debug|x86
+		{D6C7A71D-0AB5-44F1-9E1C-0D153477A7D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6C7A71D-0AB5-44F1-9E1C-0D153477A7D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6C7A71D-0AB5-44F1-9E1C-0D153477A7D8}.Release|x86.ActiveCfg = Release|x86
+		{D6C7A71D-0AB5-44F1-9E1C-0D153477A7D8}.Release|x86.Build.0 = Release|x86
+		{C29A9934-AE47-4776-867F-0240A83F2C53}.Debug|Any CPU.ActiveCfg = Debug
+		{C29A9934-AE47-4776-867F-0240A83F2C53}.Debug|x86.ActiveCfg = Debug
+		{C29A9934-AE47-4776-867F-0240A83F2C53}.Debug|x86.Build.0 = Debug
+		{C29A9934-AE47-4776-867F-0240A83F2C53}.Release|Any CPU.ActiveCfg = Release
+		{C29A9934-AE47-4776-867F-0240A83F2C53}.Release|x86.ActiveCfg = Release
+		{C29A9934-AE47-4776-867F-0240A83F2C53}.Release|x86.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7bab545e73714c6eba48c2fd547ae9bd" Name="Diagram1">
+        <EntityTypeShape EntityType="BancoCarrosModel.FABRICANTE" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BancoCarrosModel.MARCA" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BancoCarrosModel.SERVICOS" Width="1.5" PointX="4.25" PointY="4.25" IsExpanded="true" />
+        <AssociationConnector Association="BancoCarrosModel.FK__MARCA__FABRICANT__25869641" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoCarrosModel.FK__SERVICOS__FABRIC__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoCarrosModel.FK__SERVICOS__MARCA__29572725" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BancoCarrosModel.CARROS" Width="1.5" PointX="7" PointY="0.75" />
+        <AssociationConnector Association="BancoCarrosModel.FK__CARROS__FABRICAN__36B12243" />
+        <AssociationConnector Association="BancoCarrosModel.FK__CARROS__MARCA__37A5467C" />
+        <AssociationConnector Association="BancoCarrosModel.FK__SERVICOS__CARRO__38996AB5" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
